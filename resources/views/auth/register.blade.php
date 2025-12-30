@@ -37,7 +37,7 @@
     <div class="w-full md:w-3/12">
         <div class="bg-white p-8 rounded-xl shadow-xl">
 
-            <form method="POST" action="" class="space-y-5">
+            <form method="POST" action="{{ route('register')}}" class="space-y-5" novalidate>
                 @csrf
 
                 <div>
@@ -49,8 +49,14 @@
                         name="name"
                         type="text"
                         placeholder="Tu nombre"
-                        class="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+                        class="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 @error('name') border-red-500 @enderror"
                     />
+
+                    @error('name')
+                        <p class="bg-red-500 text-white my-2 rounded-b-lg tex-sm p-2 text-center">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div>
@@ -64,6 +70,11 @@
                         placeholder="Tu nombre de usuario"
                         class="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
                     />
+                    @error('username')
+                        <p class="bg-red-500 text-white my-2 rounded-b-lg tex-sm p-2 text-center">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div>
@@ -77,6 +88,11 @@
                         placeholder="Tu email de registro"
                         class="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
                     />
+                    @error('email')
+                        <p class="bg-red-500 text-white my-2 rounded-b-lg tex-sm p-2 text-center">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div>
@@ -90,6 +106,11 @@
                         placeholder="********"
                         class="border p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
                     />
+                    @error('password')
+                        <p class="bg-red-500 text-white my-2 rounded-b-lg tex-sm p-2 text-center">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div>

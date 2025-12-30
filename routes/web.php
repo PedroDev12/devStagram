@@ -12,6 +12,6 @@ Route::get('/', function () {
 });
 
 
-
-Route::get('/crear-cuenta',[RegisterController::class, 'index']);
-Route::post('/crear-cuenta',[RegisterController::class, 'index']);
+//Rutas para controlar los registros de los usuarios....
+Route::get('/register',[RegisterController::class, 'index'])->name('register');
+Route::post('/register',[RegisterController::class, 'store']);
